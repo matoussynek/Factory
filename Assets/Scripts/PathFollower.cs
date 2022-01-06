@@ -12,7 +12,8 @@ public class PathFollower : MonoBehaviour
         if (distanceTravelled >= pathCreator.path.length)
         {
             distanceTravelled = 0;
-            transform.localScale = new Vector2(1f, 1f);
+            GetComponent<Robot>().SetBody(0);
+            GetComponent<Robot>().SetColor(Color.white);
         }
         transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
     }

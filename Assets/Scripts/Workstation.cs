@@ -4,13 +4,29 @@ using UnityEngine;
 
 public class Workstation : MonoBehaviour
 {
-    [Range(.1f, .5f)]
-    public float scaleFactor;
+    public int setBody = 0;
+    public bool coloring = false;
+    public Color color;
+    public GameObject actionKey;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Item"))
         {
-            collision.gameObject.transform.localScale = new Vector2(1f + scaleFactor, 1f + scaleFactor);
+            if (setBody != 0)
+                collision.gameObject.GetComponent<Robot>().SetBody(setBody);
+            if (coloring && color != null)
+                collision.gameObject.GetComponent<Robot>().SetColor(color);
+        }
+        if (collision.CompareTag("Player"))
+        {
+            actionKey.SetActive(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            actionKey.SetActive(false);
         }
     }
 }

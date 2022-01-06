@@ -19,7 +19,7 @@ TagManager:
   - Ground
   - Item
   - Player
-  - 
+  - Foreground
   - 
   - 
   - 
@@ -39,9 +39,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ProductLine
+    uniqueID: 3747653395
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Player
     uniqueID: 4062243261
+    locked: 0
+  - name: Foreground
+    uniqueID: 3937452021
     locked: 0
